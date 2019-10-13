@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v1
       - name: Switch Xcode to 11.1
         run: xcversion select 11.1
-      - name: Build
-        run: swift build -v
+      - name: Generate Xcode project file
+        run: swift package generate-xcodeproj
       - name: Test
-        run: swift test -v
+        run: xcodebuild -scheme SQLite-Package -destination 'platform=iOS Simulator,name=iPhone 11 Pro,OS=13.1' test | xcpretty
