@@ -1,6 +1,6 @@
 # Forever
 
-**ARCHIVED**
+⚠️⚠️⚠️ **ARCHIVED** ⚠️⚠️⚠️
 
 This repository was originally intended to fill what we thought was a hole in Apple's Combine framework. Because of a misunderstanding about how to use Combine's [`Subscribers.Demand`](https://developer.apple.com/documentation/combine/subscribers/demand) concept, we thought Combine was missing a `Subscriber` who always demanded an unlimited number of values from its `Publisher`. In fact, [`Subscribers.Sink`](https://developer.apple.com/documentation/combine/subscribers/sink) fulfills that exact purpose. We were confused because `Sink.receive(_ value: Input) -> Subscribers.Demand` returns `.unlimited` the first time its called, but `.none` every time thereafter. We took this to mean `Sink` wanted all of the `Publisher`'s available values immediately, but none after the first delivery. Instead, according to the documentation, `Subscribers.Demand` is additive, and adding any amount to or subtracting any amount from `.unlimited` demand results in `.unlimited` demand.
 
